@@ -7,7 +7,7 @@ from sklearn import linear_model
 from sklearn import tree
 from sklearn import svm
 # PUT POLARITY DATASET PATH HERE
-POLARITY_PATH = '/Users/marcotcr/phd/datasets/multi_domain_polarity/'
+POLARITY_PATH = os.getenv("POLARITY_PATH", default="data/processed_acl")
 
 
 def LoadDataset(dataset_name):
@@ -31,7 +31,7 @@ def LoadDataset(dataset_name):
         return train_data, train_labels, test_data, test_labels, class_names
     if dataset_name.startswith('multi_polarity_'):
         name = dataset_name.split('_')[2]
-        return LoadMultiDomainDataset(POLARITY_PATH + name)
+        return LoadMultiDomainDataset(os.path.join(POLARITY_PATH, name))
 
 
 def LoadMultiDomainDataset(path_data, remove_bigrams=True):
