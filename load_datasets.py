@@ -2,10 +2,6 @@ import random
 import os
 import re
 import numpy as np
-from sklearn.feature_extraction.text import CountVectorizer
-from sklearn import linear_model
-from sklearn import tree
-from sklearn import svm
 # PUT POLARITY DATASET PATH HERE
 POLARITY_PATH = os.getenv("POLARITY_PATH", default="data/processed_acl")
 
